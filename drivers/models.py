@@ -10,7 +10,7 @@ class DriverProfile(models.Model):
         related_name="driver_profile"
     )
 
-    license_number = models.CharField(max_length=100)
+    license_number = models.CharField(max_length=100, unique=True)
 
     is_available = models.BooleanField(default=False)
 
@@ -28,4 +28,4 @@ class DriverProfile(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.user.username
+        return f"Driver: {self.user.username}"
